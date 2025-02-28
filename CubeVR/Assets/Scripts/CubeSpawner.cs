@@ -5,6 +5,7 @@ using UnityEngine;
 public class CubeSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject cubePrefab;
+    [SerializeField] private OVRCameraRig cameraRig;
     [SerializeField] private Transform playerHead;
     [SerializeField] private float spawnDist = 2f;
     [SerializeField] private float spawnInterval = 3f;
@@ -16,15 +17,16 @@ public class CubeSpawner : MonoBehaviour
 
     void SpawnCubes()
     {
-        for (int i = 0; i <= 2; i++)
-        {
-            SpawnCube(Random.Range(-3f, 3f));
-        }
+        Vector3 headPosition = cameraRig.centerEyeAnchor.position;
+        Vector3 forwardDirection = cameraRig.centerEyeAnchor.forward;
+
+        // Spawn two cubes side-by-side
+        SpawnCube(headPosition + forwardDirection * spawnDist + cameraRig.centerEyeAnchor.right * Random.Range(-3f, 0f));
+        SpawnCube(headPosition + forwardDirection * spawnDist + cameraRig.centerEyeAnchor.right * Random.Range(0f, 3f));
     }
 
-    void SpawnCube(float xOffset)
+    void SpawnCube(Vector3 position)
     {
-        Vector3 spawnPos = playerHead.position + playerHead.forward * spawnDist + playerHead.right * xOffset;
-        Instantiate(cubePrefab, spawnPos, Quaternion.identity);
+        Instantiate(cubePrefab, position, Quaternion.identity);
     }
 }

@@ -14,8 +14,8 @@ public class CubeController : MonoBehaviour
 
     private void Update()
     {
-        Vector3 moveDir = (playerHead.position - transform.position).normalized;
-        transform.position = moveDir * moveSpeed * Time.deltaTime;
+        // Move toward player's head
+        transform.position = Vector3.MoveTowards(transform.position, playerHead.position, moveSpeed * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
