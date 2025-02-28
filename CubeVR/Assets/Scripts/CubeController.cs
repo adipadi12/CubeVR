@@ -6,11 +6,15 @@ public class CubeController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private Transform explosionEffect;
+    [SerializeField] private AudioClip explosionSound;
+
     private Transform playerHead;
+    private AudioSource audioSource;
 
     private void Start()
     {
         playerHead = FindObjectOfType<OVRCameraRig>().centerEyeAnchor;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -23,6 +27,7 @@ public class CubeController : MonoBehaviour
     {
         if (other.CompareTag("Controller")) 
         {
+            AudioSource.PlayClipAtPoint(explosionSound, transform.position);
             ScoreManager.Instance.AddScore(0.5f);
             Instantiate(explosionEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);

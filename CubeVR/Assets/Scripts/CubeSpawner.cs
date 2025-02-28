@@ -21,8 +21,8 @@ public class CubeSpawner : MonoBehaviour
         Vector3 forwardDirection = cameraRig.centerEyeAnchor.forward;
 
         // Spawn two cubes side-by-side
-        SpawnCube(headPosition + forwardDirection * spawnDist + cameraRig.centerEyeAnchor.right * Random.Range(-3f, 0f));
-        SpawnCube(headPosition + forwardDirection * spawnDist + cameraRig.centerEyeAnchor.right * Random.Range(0f, 3f));
+        SpawnCube(headPosition + forwardDirection * spawnDist + cameraRig.centerEyeAnchor.right * Random.Range(-2f, 0f));
+        SpawnCube(headPosition + forwardDirection * spawnDist + cameraRig.centerEyeAnchor.right * Random.Range(0f, 2f));
     }
 
     void SpawnCube(Vector3 position)

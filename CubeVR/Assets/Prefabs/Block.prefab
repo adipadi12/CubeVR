@@ -130,7 +130,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -149,3 +149,4 @@ MonoBehaviour:
   moveSpeed: 0.5
   explosionEffect: {fileID: 6009771590358718188, guid: 38abc5afc8c814e4185f770d26ef3a1f,
     type: 3}
+  explosionSound: {fileID: 8300000, guid: cdc7d80a7bb336c48b8c91d74d5134d1, type: 3}
