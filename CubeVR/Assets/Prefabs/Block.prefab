@@ -147,3 +147,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.5
+  explosionEffect: {fileID: 6009771590358718188, guid: 38abc5afc8c814e4185f770d26ef3a1f,
+    type: 3}

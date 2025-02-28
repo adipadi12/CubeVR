@@ -5,6 +5,7 @@ using UnityEngine;
 public class CubeController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private Transform explosionEffect;
     private Transform playerHead;
 
     private void Start()
@@ -22,7 +23,8 @@ public class CubeController : MonoBehaviour
     {
         if (other.CompareTag("Controller")) 
         {
-            ScoreManager.Instance.AddScore(1);
+            ScoreManager.Instance.AddScore(0.5f);
+            Instantiate(explosionEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
